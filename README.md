@@ -46,6 +46,12 @@ Due to time constraints, some planned features were not fully implemented. This 
 
 ---
 
+### Project Documentation
+
+For a detailed technical and functional overview of the project, including its design and the specific requirements it addresses, please refer to the documents located in the `docs` directory. The report and presentation are available in Spanish only.
+
+---
+
 ### App Screenshots
 
 #### Login Page
