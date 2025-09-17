@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CartButtonText" xml:space="preserve">
+    <value>Cart</value>
+  </data>
+  <data name="CatalogButtonText" xml:space="preserve">
+    <value>Catalog</value>
+  </data>
+  <data name="MainWindowTitle" xml:space="preserve">
+    <value>Music Store POS</value>
+  </data>
+  <data name="ManageProductsButtonText" xml:space="preserve">
+    <value>Manage Products</value>
+  </data>
+  <data name="ReportsButtonText" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="SalesHistoryButtonText" xml:space="preserve">
+    <value>Sales History</value>
+  </data>
+  <data name="SettingsButtonText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="CatalogViewTitle" xml:space="preserve">
+    <value>Product Catalog</value>
+  </data>
+  <data name="ProductDetailsButtonText" xml:space="preserve">
+    <value>View Details</value>
+  </data>
+  <data name="AddToCartButtonText" xml:space="preserve">
+    <value>Add to Cart</value>
+  </data>
+  <data name="CartViewTitle" xml:space="preserve">
+    <value>Shopping Cart</value>
+  </data>
+  <data name="EmptyCartMessage" xml:space="preserve">
+    <value>There are no products in the cart</value>
+  </data>
+  <data name="DeleteButtonText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="TotalLabelText" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="GoToCheckoutButtonText" xml:space="preserve">
+    <value>Go to Checkout</value>
+  </data>
+  <data name="CheckoutViewTitle" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
+  <data name="OrderSummaryLabel" xml:space="preserve">
+    <value>Order Summary</value>
+  </data>
+  <data name="CustomerDetailsLabel" xml:space="preserve">
+    <value>Customer Details</value>
+  </data>
+  <data name="FirstNameLabel" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+  <data name="LastNameLabel" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+  <data name="AddressLabel" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="PaymentMethodLabel" xml:space="preserve">
+    <value>Payment Method:</value>
+  </data>
+  <data name="FinalizePurchaseButtonText" xml:space="preserve">
+    <value>Finalize Purchase</value>
+  </data>
+  <data name="OrderDetailViewTitle" xml:space="preserve">
+    <value>Order Details</value>
+  </data>
+  <data name="CustomerInformationHeader" xml:space="preserve">
+    <value>Customer Information</value>
+  </data>
+  <data name="CustomerFirstNameLabel" xml:space="preserve">
+    <value>First Name:</value>
+  </data>
+  <data name="CustomerLastNameLabel" xml:space="preserve">
+    <value>Last Name:</value>
+  </data>
+  <data name="CustomerAddressLabel" xml:space="preserve">
+    <value>Address:</value>
+  </data>
+  <data name="CustomerPaymentMethodLabel" xml:space="preserve">
+    <value>Payment Method:</value>
+  </data>
+  <data name="OrderTotalLabel" xml:space="preserve">
+    <value>Order Total:</value>
+  </data>
+  <data name="ProductAdminViewTitle" xml:space="preserve">
+    <value>Product Administration</value>
+  </data>
+  <data name="NewProductButtonText" xml:space="preserve">
+    <value>New Product</value>
+  </data>
+  <data name="EditProductButtonText" xml:space="preserve">
+    <value>Edit Product</value>
+  </data>
+  <data name="DeleteProductButtonText" xml:space="preserve">
+    <value>Delete Product</value>
+  </data>
+  <data name="ProductIdColumnHeader" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ProductNameColumnHeader" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ProductDescriptionColumnHeader" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="ProductPriceColumnHeader" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="ProductCategoryColumnHeader" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="ProductDetailPriceLabel" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="ProductDetailCategoryLabel" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="ProductDetailDescriptionLabel" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="AddToCartButtonTextDetail" xml:space="preserve">
+    <value>Add to cart</value>
+  </data>
+  <data name="ProductEditViewTitle" xml:space="preserve">
+    <value>Product Details</value>
+  </data>
+  <data name="ProductNameLabelEdit" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="ProductDescriptionLabelEdit" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="ProductPriceLabelEdit" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="ProductCategoryLabelEdit" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="SaveButtonTextEdit" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="CancelButtonTextEdit" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ReportsViewTitle" xml:space="preserve">
+    <value>Reports and Statistics</value>
+  </data>
+  <data name="TotalProductsLabel" xml:space="preserve">
+    <value>Total Product Count:</value>
+  </data>
+  <data name="TotalSalesLabel" xml:space="preserve">
+    <value>Total Number of Sales:</value>
+  </data>
+  <data name="HistoricalTotalRevenueLabel" xml:space="preserve">
+    <value>Historical Total Revenue:</value>
+  </data>
+  <data name="CurrentMonthRevenueLabel" xml:space="preserve">
+    <value>Current Month Revenue:</value>
+  </data>
+  <data name="SalesHistoryViewTitle" xml:space="preserve">
+    <value>Sales History</value>
+  </data>
+  <data name="SettingsViewTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LanguageLabelSettings" xml:space="preserve">
+    <value>Language:</value>
+  </data>
+  <data name="SaveButtonTextSettings" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="DateColumnHeader" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="FirstNameColumnHeader" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="LastNameColumnHeader" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="TotalColumnHeader" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="LoginViewTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="UsernameLabel" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="PasswordLabel" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ExportInvoiceButton" xml:space="preserve">
+    <value>Export PDF</value>
+  </data>
+</root>

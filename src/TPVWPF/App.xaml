@@ -1,0 +1,9 @@
+﻿<Application x:Class="TPVWPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:TPVWPF"
+             xmlns:services="clr-namespace:TPVWPF.Services">
+    <Application.Resources>
+        <services:LocalizationService x:Key="LocalizationService" />
+    </Application.Resources>
+</Application>

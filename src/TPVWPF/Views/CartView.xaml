@@ -1,0 +1,241 @@
+﻿<UserControl x:Class="TPVWPF.Views.CartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:TPVWPF.Views"
+             xmlns:converters="clr-namespace:TPVWPF.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="600"
+             d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <converters:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+
+        <Style TargetType="TextBlock">
+            <Setter Property="VerticalAlignment"
+                    Value="Center" />
+            <Setter Property="FontFamily"
+                    Value="Segoe UI" />
+            <Setter Property="Foreground"
+                    Value="#333333" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Padding"
+                    Value="10 5" />
+            <Setter Property="MinWidth"
+                    Value="100" />
+            <Setter Property="FontFamily"
+                    Value="Segoe UI Semibold" />
+            <Setter Property="Background"
+                    Value="#FF4285F4" />
+            <Setter Property="BorderBrush"
+                    Value="Transparent" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="Margin"
+                    Value="5 0" />
+            <Setter Property="Cursor"
+                    Value="Hand" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#FF3367D6" />
+                </Trigger>
+                <Trigger Property="IsPressed"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#FF2A56B7" />
+                </Trigger>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter Property="Background"
+                            Value="#FFCCCCCC" />
+                    <Setter Property="Foreground"
+                            Value="#FF888888" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Padding"
+                    Value="5" />
+            <Setter Property="BorderBrush"
+                    Value="#CCCCCC" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center" />
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError"
+                         Value="True">
+                    <Setter Property="BorderBrush"
+                            Value="Red" />
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="ListBox">
+            <Setter Property="BorderThickness"
+                    Value="0" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                    Value="Disabled" />
+        </Style>
+
+        <Style TargetType="ListBoxItem">
+            <Setter Property="Padding"
+                    Value="15 10" />
+            <Setter Property="Margin"
+                    Value="0 5" />
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="BorderBrush"
+                    Value="#EEEEEE" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#F5F5F5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Background="#FFF9F9F9">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Text="{Binding Source={StaticResource LocalizationService}, Path=CartViewTitle}"
+                   FontSize="24"
+                   FontWeight="SemiBold"
+                   Margin="20 15"
+                   Foreground="#333333" />
+
+        <!-- Mensaje de carrito vacío -->
+        <TextBlock Grid.Row="1"
+                   Text="{Binding Source={StaticResource LocalizationService}, Path=EmptyCartMessage}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="16"
+                   Foreground="#666666"
+                   Visibility="{Binding Items.Count, Converter={StaticResource IntToVisibilityConverter}}" />
+
+        <!-- Lista de productos en carrito -->
+        <ListBox Grid.Row="1"
+                 Name="CartItemsListBox"
+                 Margin="20 0 20 10"
+                 ItemsSource="{Binding Items}"
+                 Visibility="{Binding Items.Count, Converter={StaticResource IntToVisibilityConverter}, ConverterParameter=NotZero}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="White"
+                            BorderBrush="#EEEEEE"
+                            BorderThickness="0 0 0 1"
+                            Padding="15 10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Nombre de producto -->
+                            <TextBlock Grid.Column="0"
+                                       Text="{Binding Product.Name}"
+                                       FontWeight="Bold"
+                                       FontSize="14" />
+
+                            <!-- Cantidad -->
+                            <StackPanel Grid.Column="1"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+
+                                <TextBox Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="50"
+                                         Margin="10 0"
+                                         LostFocus="TextBox_LostFocus" />
+                            </StackPanel>
+
+                            <!-- Subtotal -->
+                            <TextBlock Grid.Column="2"
+                                       Text="{Binding Subtotal, StringFormat=C2, UpdateSourceTrigger=PropertyChanged}"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Right"
+                                       Margin="10 0" />
+
+                            <!-- Botón de borrar -->
+                            <Button Grid.Column="3"
+                                    Content="{Binding Source={StaticResource LocalizationService}, Path=DeleteButtonText}"
+                                    Command="{Binding DataContext.DeleteFromCartCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Background="#FFE57373"
+                                    Foreground="White">
+                                <Button.Style>
+                                    <Style TargetType="Button"
+                                           BasedOn="{StaticResource {x:Type Button}}">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver"
+                                                     Value="True">
+                                                <Setter Property="Background"
+                                                        Value="#FFEF5350" />
+                                            </Trigger>
+                                            <Trigger Property="IsPressed"
+                                                     Value="True">
+                                                <Setter Property="Background"
+                                                        Value="#FFE53935" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Footer con total y checkout -->
+        <Border Grid.Row="2"
+                Background="White"
+                BorderBrush="#EEEEEE"
+                BorderThickness="0 1 0 0"
+                Padding="20 15"
+                Visibility="{Binding Items.Count, Converter={StaticResource IntToVisibilityConverter}, ConverterParameter=NotZero}">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center">
+                    <TextBlock Text="{Binding Source={StaticResource LocalizationService}, Path=TotalLabelText}"
+                               FontWeight="Bold"
+                               FontSize="18" />
+                    <TextBlock Text="{Binding Total, StringFormat=C2}"
+                               FontSize="18"
+                               FontWeight="Bold"
+                               Foreground="#4285F4"
+                               Margin="10 0 30 0" />
+                </StackPanel>
+                <Button Content="{Binding Source={StaticResource LocalizationService}, Path=GoToCheckoutButtonText}"
+                        Command="{Binding CheckoutCommand}"
+                        IsEnabled="{Binding IsCartEmpty, Converter={StaticResource InverseBooleanConverter}}"
+                        FontSize="14"
+                        Padding="15 10"
+                        MinWidth="150" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

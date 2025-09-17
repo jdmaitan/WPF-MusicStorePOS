@@ -1,0 +1,137 @@
+﻿<Window x:Class="TPVWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TPVWPF"
+        xmlns:res="clr-namespace:TPVWPF.Resources"
+        mc:Ignorable="d"
+        Title="{Binding Source={StaticResource LocalizationService}, Path=MainWindowTitle}"
+        Height="600"
+        Width="1000"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Button"
+               x:Key="NavButton">
+            <Setter Property="Background"
+                    Value="Transparent" />
+            <Setter Property="BorderThickness"
+                    Value="0" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Left" />
+            <Setter Property="Padding"
+                    Value="15 10" />
+            <Setter Property="Margin"
+                    Value="0 2" />
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="Opacity"
+                    Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Margin="{TemplateBinding Padding}" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <!-- Botón HABILITADO normal -->
+                            <Trigger Property="IsEnabled"
+                                     Value="True">
+                                <Setter Property="Foreground"
+                                        Value="White" />
+                            </Trigger>
+
+                            <!-- Botón HABILITADO con mouse sobre él -->
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        Value="#34495E" />
+                            </Trigger>
+
+                            <!-- Botón DESHABILITADO -->
+                            <Trigger Property="IsEnabled"
+                                     Value="False">
+                                <Setter Property="Foreground"
+                                        Value="#95A5A6" />
+                                <!-- Gris claro -->
+                                <Setter Property="Background"
+                                        Value="Transparent" />
+                                <Setter Property="Opacity"
+                                        Value="0.6" />
+                                <!-- Efecto "atenuado" -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Panel de navegación -->
+        <Border Grid.Column="0"
+                Background="#2C3E50">
+            <StackPanel>
+                <!-- Nombre de tienda -->
+                <Border Background="#1A2634"
+                        Padding="15 20">
+                    <TextBlock Text="Harmonix"
+                               Foreground="White"
+                               FontSize="18"
+                               FontWeight="Bold" />
+                </Border>
+
+                <!-- Botones de navegación -->
+                <StackPanel Margin="0 20 0 0">
+                    <Button Content="{Binding Source={StaticResource LocalizationService}, Path=CatalogButtonText}"
+                            Style="{StaticResource NavButton}"
+                            Foreground="White"
+                            Command="{Binding ShowCatalogCommand}"
+                            IsEnabled="{Binding IsLoggedIn}" />
+                    <Button Content="{Binding Source={StaticResource LocalizationService}, Path=CartButtonText}"
+                            Style="{StaticResource NavButton}"
+                            Foreground="White"
+                            Command="{Binding ShowCartCommand}"
+                            IsEnabled="{Binding IsLoggedIn}" />
+                    <Button Content="{Binding Source={StaticResource LocalizationService}, Path=SalesHistoryButtonText}"
+                            Style="{StaticResource NavButton}"
+                            Foreground="White"
+                            Command="{Binding ShowSalesListCommand}"
+                            IsEnabled="{Binding IsLoggedIn}" />
+                    <Button Content="{Binding Source={StaticResource LocalizationService}, Path=ManageProductsButtonText}"
+                            Style="{StaticResource NavButton}"
+                            Foreground="White"
+                            Command="{Binding ShowProductAdminCommand}"
+                            IsEnabled="{Binding IsLoggedIn}" />
+                    <Button Content="{Binding Source={StaticResource LocalizationService}, Path=ReportsButtonText}"
+                            Style="{StaticResource NavButton}"
+                            Foreground="White"
+                            Command="{Binding ShowReportsCommand}"
+                            IsEnabled="{Binding IsLoggedIn}" />
+                    <Button Content="{Binding Source={StaticResource LocalizationService}, Path=SettingsButtonText}"
+                            Style="{StaticResource NavButton}"
+                            Foreground="White"
+                            Command="{Binding ShowSettingsCommand}"
+                            IsEnabled="{Binding IsLoggedIn}" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Area de contenido principal -->
+        <ContentPresenter Grid.Column="1"
+                          Content="{Binding CurrentView}"
+                          Margin="10" />
+    </Grid>
+</Window>
